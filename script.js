@@ -1,3 +1,11 @@
+/* Remaining logic to add
+
+-At least one character prompt needs to be selected before a password is generated
+-Character prompts need to allow and disallow certain groups of characters 
+-For each character of password, the appropiate desired characters should able to be randomly accessed
+
+*/
+
 // generateBtn variable identifies element in HTML that triggers initial prompts for password
 var generateBtn = document.querySelector("#generate");
 
@@ -10,6 +18,7 @@ var passCharLower;
 var passCharUpper;
 var passCharNumeric;
 var passCharSpecial;
+var finalPassword = ["0"];
 
 
 //Functions for password generation declared:
@@ -244,8 +253,56 @@ function funPassSpecial() {
 
 
 
-// Process for generating password
+
+//Generating the final password 
+// ------------------------------------------------------------
 function generatePassword() {
+
+finalPassword.length = 0;
+  
+var passCriteria = {
+  length: passLength,
+  lower: passCharLower,
+  upper: passCharUpper, 
+  numeric: passCharNumeric,
+  special: passCharSpecial
+};
+
+var charOptions = 0;
+
+if (passCriteria.lower == "Yes") {
+  charOptions = (charOptions + 26);
+} 
+
+if (passCriteria.upper == "Yes") {
+  charOptions = (charOptions + 26);
+} 
+
+if (passCriteria.numeric == "Yes") {
+  charOptions = (charOptions + 10);
+} 
+
+if (passCriteria.special == "Yes") {
+  charOptions = (charOptions + 29);
+} 
+
+var allOptions = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@[^_`{|}~";
+allOptions = allOptions.split('');
+
+for (var x = 0; x < passCriteria.length; x++) {
+  var charGen = (Math.floor(Math.random() * charOptions));
+  finalPassword.push(allOptions[charGen]);
+};
+
+console.log(finalPassword);
+return;
+}; 
+
+
+
+// Process for collecting password criteria
+// ------------------------------------------------------------
+function criteriaPassword() {
 
   //Begins by calling functions for prompts which also check syntax
   funPassLength();
@@ -294,12 +351,37 @@ function generatePassword() {
     return;
   };
 
+  if (passCharSpecial !== null) {
+    if (passCharSpecial == "Y") {
+      passCharSpecial = "Yes";
+    } else { passCharSpecial = "No" };
+
+    var confirmProceed = window.confirm("Generate password with the following criteria?\n\nLength: " + passLength +
+    "\nLowercase characters: " + passCharLower +
+    "\nUppercase characters: " + passCharUpper +
+    "\nNumeric characters: " + passCharNumeric +
+    "\nSpecial characters: " + passCharSpecial);
+
+    if (confirmProceed) {
+      generatePassword();
+    } else {
+    passwordHTML.value = "";
+    passwordHTML.placeholder = "Insufficient Criteria Chosen:\nPlease Generate Password Again";
+    return;
+    };
+  } else {
+    passwordHTML.value = "";
+    passwordHTML.placeholder = "Insufficient Criteria Chosen:\nPlease Generate Password Again";
+    return;
+  };
+
 
   //Once functions for criteria are working, a password will then need to be generated following the criteria
 
   //Final password written here if applicable.
   if (passLength !== null && passCharLower !== null && passCharUpper !== null && passCharNumeric !== null && passCharSpecial !== null) {
-    password = (String(passLength) + passCharLower + passCharUpper + passCharNumeric + passCharSpecial);
+    //password = (String(passLength) + passCharLower + passCharUpper + passCharNumeric + passCharSpecial);
+    password = finalPassword.join("");
     writePassword();
   } else {
     passwordHTML.value = "";
@@ -309,14 +391,13 @@ function generatePassword() {
 };
 
 
-
 // First writes password to the #password input (I have changed password to be a global variable)
 function startNewPassword() {
   passwordHTML.value = "";
   passwordHTML.placeholder = "Follow Criteria Prompts";
 
   //setTimout is necessary for the above placeholder text change to be visible before window.prompt shows
-  setTimeout(generatePassword, 100);
+  setTimeout(criteriaPassword, 100);
 };
 
 
