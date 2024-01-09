@@ -135,3 +135,9 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
+@media screen and (max-width: 394px) {
+  #genpassword {
+    text-align: center;
+  }
+}
