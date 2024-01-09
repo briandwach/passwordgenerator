@@ -30,9 +30,9 @@ https://briandwach.github.io/passwordgenerator/
 The code repository can be accessed here:
 https://github.com/briandwach/passwordgenerator/
 
-![Landing view](./assets/images/main.png)  
-![Criteria prompts](./assets/images/criteria.png)
-![Mobile and password result](./assets/images/mobile.png)
+![Landing view](./assets/images/mainview.png)  
+![Criteria prompts](./assets/images/criterias.png)
+![Mobile and password result](./assets/images/mobileview.png)
 
 ## Credits
 index.html, styles.css, and script.js files originated from the class activities Northwestern University GitLab repository: NU-VIRT-FSF-PT-12-2023-U-LOLC
