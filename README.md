@@ -31,9 +31,9 @@ The code repository can be accessed here:
 https://github.com/briandwach/passwordgenerator/
 
 
-![Landing view](./assets/images/main.PNG)  
-![Criteria prompts](./assets/images/criteria.PNG)
-![Mobile and password result](./assets/images/mobile.PNG)
+![Landing view](./assets/images/main.png)  
+![Criteria prompts](./assets/images/criteria.png)
+![Mobile and password result](./assets/images/mobile.png)
 
 
 ## Credits
