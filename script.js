@@ -39,7 +39,7 @@ function funLengthSyntax() {
     return;
   };
 
-  passLength = Number(passLength);
+  passLength = Number(passLength.trim());
 
   if (!Number.isInteger(passLength)
     || (passLength < 8)
@@ -60,7 +60,7 @@ function funPassLowercaseSyntax() {
     return;
   };
 
-  passCharLower = passCharLower.toUpperCase();
+  passCharLower = passCharLower.toUpperCase().trim();
 
   if (passCharLower != "Y" && passCharLower != "N") {
     funPassLowercaseSyntax();
@@ -81,7 +81,7 @@ function funPassUppercaseSyntax() {
     return;
   };
 
-  passCharUpper = passCharUpper.toUpperCase();
+  passCharUpper = passCharUpper.toUpperCase().trim();
 
   if (passCharUpper != "Y" && passCharUpper != "N") {
     funPassUppercaseSyntax();
@@ -102,7 +102,7 @@ function funPassNumericSyntax() {
     return;
   };
 
-  passCharNumeric = passCharNumeric.toUpperCase();
+  passCharNumeric = passCharNumeric.toUpperCase().trim();
 
   if (passCharNumeric != "Y" && passCharNumeric != "N") {
     funPassNumericSyntax();
@@ -124,7 +124,7 @@ function funPassSpecialSyntax() {
     return;
   };
 
-  passCharSpecial = passCharSpecial.toUpperCase();
+  passCharSpecial = passCharSpecial.toUpperCase().trim();
 
   if (passCharSpecial != "Y" && passCharSpecial != "N") {
     funPassSpecialSyntax();
@@ -149,7 +149,7 @@ function funPassLength() {
     return;
   };
 
-  passLength = Number(passLength);
+  passLength = Number(passLength.trim());
 
   if (!Number.isInteger(passLength)
     || (passLength < 8)
@@ -171,7 +171,8 @@ function funPassLowercase() {
     return;
   };
 
-  passCharLower = passCharLower.toUpperCase();
+
+  passCharLower = passCharLower.toUpperCase().trim();
 
   if (passCharLower !== "Y" && passCharLower !== "N") {
     funPassLowercaseSyntax();
@@ -191,7 +192,7 @@ function funPassUppercase() {
     return;
   };
 
-  passCharUpper = passCharUpper.toUpperCase();
+  passCharUpper = passCharUpper.toUpperCase().trim();
 
   if (passCharUpper != "Y" && passCharUpper != "N") {
     funPassUppercaseSyntax();
@@ -212,7 +213,7 @@ function funPassNumeric() {
     return;
   };
 
-  passCharNumeric = passCharNumeric.toUpperCase();
+  passCharNumeric = passCharNumeric.toUpperCase().trim();
 
   if (passCharNumeric != "Y" && passCharNumeric != "N") {
     funPassNumericSyntax();
@@ -234,7 +235,7 @@ function funPassSpecial() {
     return;
   };
 
-  passCharSpecial = passCharSpecial.toUpperCase();
+  passCharSpecial = passCharSpecial.toUpperCase().trim();
 
   if (passCharSpecial != "Y" && passCharSpecial != "N") {
     funPassSpecialSyntax();
@@ -292,7 +293,6 @@ function generatePassword() {
     finalPassword.push(allOptions[charGen]);
   };
 
-  console.log(finalPassword);
   return;
 };
 
