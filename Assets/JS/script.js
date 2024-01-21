@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 
 // Declaring other global variables
-var password = "Your Secure Password";
+var password = "Click Button Below";
 var passLength = null;
 var passwordHTML = document.querySelector("#password");
 var passCharLower;
@@ -62,7 +62,7 @@ function funPassLowercaseSyntax() {
 
   passCharLower = passCharLower.toUpperCase().trim();
 
-  if (passCharLower != "Y" && passCharLower != "N") {
+  if (passCharLower != "Y" && passCharLower != "N" && passCharLower !== "YES" && passCharLower !== "NO") {
     funPassLowercaseSyntax();
   } else {
     return;
@@ -83,7 +83,7 @@ function funPassUppercaseSyntax() {
 
   passCharUpper = passCharUpper.toUpperCase().trim();
 
-  if (passCharUpper != "Y" && passCharUpper != "N") {
+  if (passCharUpper != "Y" && passCharUpper != "N" && passCharUpper !== "YES" && passCharUpper !== "NO") {
     funPassUppercaseSyntax();
   } else {
     return;
@@ -104,7 +104,7 @@ function funPassNumericSyntax() {
 
   passCharNumeric = passCharNumeric.toUpperCase().trim();
 
-  if (passCharNumeric != "Y" && passCharNumeric != "N") {
+  if (passCharNumeric != "Y" && passCharNumeric != "N" && passCharNumeric !== "YES" && passCharNumeric !== "NO") {
     funPassNumericSyntax();
   } else {
     return;
@@ -126,7 +126,7 @@ function funPassSpecialSyntax() {
 
   passCharSpecial = passCharSpecial.toUpperCase().trim();
 
-  if (passCharSpecial != "Y" && passCharSpecial != "N") {
+  if (passCharSpecial != "Y" && passCharSpecial != "N" && passCharSpecial !== "YES" && passCharSpecial !== "NO") {
     funPassSpecialSyntax();
   } else {
     return;
@@ -174,7 +174,7 @@ function funPassLowercase() {
 
   passCharLower = passCharLower.toUpperCase().trim();
 
-  if (passCharLower !== "Y" && passCharLower !== "N") {
+  if (passCharLower !== "Y" && passCharLower !== "N" && passCharLower !== "YES" && passCharLower !== "NO") {
     funPassLowercaseSyntax();
   } else {
     return;
@@ -194,7 +194,7 @@ function funPassUppercase() {
 
   passCharUpper = passCharUpper.toUpperCase().trim();
 
-  if (passCharUpper != "Y" && passCharUpper != "N") {
+  if (passCharUpper != "Y" && passCharUpper != "N" && passCharUpper !== "YES" && passCharUpper !== "NO") {
     funPassUppercaseSyntax();
   } else {
     return;
@@ -215,7 +215,7 @@ function funPassNumeric() {
 
   passCharNumeric = passCharNumeric.toUpperCase().trim();
 
-  if (passCharNumeric != "Y" && passCharNumeric != "N") {
+  if (passCharNumeric != "Y" && passCharNumeric != "N" && passCharNumeric !== "YES" && passCharNumeric !== "NO") {
     funPassNumericSyntax();
   } else {
     return;
@@ -237,7 +237,7 @@ function funPassSpecial() {
 
   passCharSpecial = passCharSpecial.toUpperCase().trim();
 
-  if (passCharSpecial != "Y" && passCharSpecial != "N") {
+  if (passCharSpecial != "Y" && passCharSpecial != "N" && passCharSpecial !== "YES" && passCharSpecial !== "NO") {
     funPassSpecialSyntax();
   } else {
     return;
@@ -317,7 +317,7 @@ function criteriaPassword() {
   //passCharLower = passCharLower.toUpperCase();
 
   if (passCharLower !== null) {
-    if (passCharLower == "Y") {
+    if (passCharLower == "Y" || passCharLower == "YES") {
       passCharLower = "Yes";
     } else { passCharLower = "No" };
     funPassUppercase();
@@ -328,7 +328,7 @@ function criteriaPassword() {
   };
 
   if (passCharUpper !== null) {
-    if (passCharUpper == "Y") {
+    if (passCharUpper == "Y" || passCharUpper == "YES") {
       passCharUpper = "Yes";
     } else { passCharUpper = "No" };
     funPassNumeric();
@@ -339,7 +339,7 @@ function criteriaPassword() {
   };
 
   if (passCharNumeric !== null) {
-    if (passCharNumeric == "Y") {
+    if (passCharNumeric == "Y" || passCharNumeric == "YES") {
       passCharNumeric = "Yes";
     } else { passCharNumeric = "No" };
     funPassSpecial();
@@ -352,7 +352,7 @@ function criteriaPassword() {
 
   //The following next if statements confirm whether all parameters are correct for generating the final password
   if (passCharSpecial !== null) {
-    if (passCharSpecial == "Y") {
+    if (passCharSpecial == "Y" || passCharSpecial == "YES") {
       passCharSpecial = "Yes";
     } else { passCharSpecial = "No" };
     if (passLength == "Yes" || passCharLower == "Yes" || passCharUpper == "Yes" || passCharNumeric == "Yes" || passCharSpecial == "Yes") {
